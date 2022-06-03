@@ -1,0 +1,388 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{lipsum,booktabs}
+\usepackage{longtable}
+\usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+ \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{lipsum}
+    \usepackage{cuted}
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Twitter Based Analysis of impacts of \\Covid-19 on Education\\
+{\footnotesize \textsuperscript{*}Istanbul Kultur University,  Artificial Intelligence, CSE04440 Term Project}
+
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Nasibullah Qarizada}
+\IEEEauthorblockA{\textit{Computer Engineering Department} \\
+\textit{Istanbul Kultur University}\\
+Istanbul, Turkey \\
+1900004691@stu.iku.edu.tr}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Cihan Dikkaya}
+\IEEEauthorblockA{\textit{Computer Engineering Department} \\
+\textit{Istanbul Kultur University}\\
+Istanbul, Turkey \\
+1800003856@stu.iku.edu.tr}
+\and
+\IEEEauthorblockN{3\textsuperscript{th} Emirhan Azgun}
+\IEEEauthorblockA{\textit{Computer Engineering Department} \\
+\textit{Istanbul Kultur University}\\
+Istanbul, Turkey \\
+1800005381@stu.iku.edu.t}
+}
+
+\maketitle
+\begin{strip}
+
+
+\begin{abstract}\\
+
+After spreading of the Covid-19 the education system has affected seriously. In target of adaption to this situation, governments decided to continue their education online to prevent spreading of Covid-19 among people. As we know, this decision has affected many lives in different ways. In this document We are going to indite our research about impacts of Covid-19 on education and measure it's sentiment analysis over student through Twitter platform with working with a data set consist of ten thousand tweets gathered related to Covid-19 and education during pandemic. And with the help of usage of Natural Language Processing I infer to share a result of analysis regarding to the research. Thus, I would like to share a good understanding of this research \\
+\end{abstract}
+
+\begin{IEEEkeywords}
+Covid-19, Education, Impacts, School, Sickness
+\end{IEEEkeywords}
+\end{strip}
+
+\section{Introduction}
+In spring 2020, Covid-19 also known as SARS-coV-2 has spread out and changed the everyday life human beings from working, studying, living to any kind of social activities. Undoubtedly, Education was one of the most affected ones. In so much that governments and institutes decided to close schools, courses universities and education centers which was going to be the main reason of changing of their formal face-to-face education to online platforms under the title of online learning or e-learning through different ways. This decision was going to bother students, instructor, and their families in financial and social consequences also. Subsequently, caused educator and researcher to be concerned about the online learning inequalities and disadvantages on students and to think of their families and financial situations. Almost in two months nearly every educational center has turned remote functioning and e-learning. Recent studies showed that 1.52 billion learners get affected due to closure of educational centers and they are in risk of socio-economic issues like academic integrity, homelessness, internet, housing, and student debts. \\
+\\
+In this research, I attempt to analyze student, instructors, and families’ feelings against the impacts of covid-19 on their lives, especially on their academical lives. Sentiment analyses, a field which has a great potential to extract and analyze people regarding to a specific case, personality, or idea. Nowadays machine learning and deep learning is everywhere even in natural language processing and text analyses, which is a preferred way in such research. Natural language processing has made it so easy to gather such information nowadays. In sum, the main goal of study is to gain information such as: \\
+
+\begin{itemize}
+\item To analyze effects of covid-19 on education within positive, negative, and neutral forms.
+\item Analyzing thoughts of stakeholders’ tweets regarding to changes of formal education to e-learning.
+\item To analyze emotions and reaction of people regarding to these changes.
+\item To analyze effects of different educational method on different groups.
+\end{itemize}
+
+\\
+\subsection{Brief Introduction to Research Sections}
+
+section 2: related works and research done in this study. Section 3: description of data collection, feature extraction and data pre-processing. described the methodology and machine learning algorithms used in this research. Section 4: about results of the research. section 5: is about conclusion and future work.
+
+\section{Related Works}
+Sentiment analysis with the help of natural language processing is the operation of exploring people’s ideas, thoughts, and attitudes about a specific topic from large datasets. A huge amount of research has been done in last years for analyzing people’s ideas about specific topics. Undoubtedly, one of the most researched topics are COVID-19 impacts our daily lives. In case to explore them, I would like to keep a whistle on study[1] which compares the differences and effects of e-learning with traditional methods. At the very beginning, research shows that only 73 percent of students can gain access to internet and 71.4 percent of them are fully equipped to gain access over a device for online classes. however, 78.6 percent of them responded that formal education method is much good and effective than studying online. subsequently, research [12] also used deep learning and natural language processing to measure the reaction of people in vaccination of COVID-19 in United Kingdom (UK) and United states (US) with gathering datasets from twitter and Facebook. In result, study showed that the average of people which were positive about the vaccine is better in UK than US. 
+\\ \\
+Another study [13] analyzed emotions of shared tweets regarding educations during COVID-19 using of NLP and naïve-based classifier. And the results were showing that number of negative tweets has passed number of positive tweets. And in study[4] which its target was also online education has done with 1717 tweets to analyze. After data pre-processing, 1548 tweets were left and was divided as favorable, negative, and neutral with an accuracy of 74.9 percent and about 154 reports about online education have received from internet including reviews and blogs and analyzed with text mining with lexicon-based method. 
+\\ \\
+Furthermore, study[5] used a kernel model where tweets was being represented in hierarchical charts and classified into positive, negative, and neutral with their POS tags.
+As the results of all of this research most of governments and educational centers accepted that there are two big problems; online education is not as effective as formal education and have a little impact on learning. Eventually, which each article has the ability to lead to a cultural disaster to incoming generations. \\\\
+
+\section{Methodology}
+In case if you wanted to study impacts of an incident on people or events such as this research through natural language processing methods; you have to gather a dataset from any specified social media and then deploy pre-processing methods such as Textblob, NLTK, Kapiche, Vardar or etc. to make them and perform tokenization to make them easy to accurate. As third stage, the created dataset will get through a developed and designed model as the most important part the resaercher have to choose the most effective sentiment analysis libraries which we prefered TextBlob and Vader here. Finally, the testing process begins to check research accuracy according to their developed models and research purposes.
+\\\\
+In Fig. 1. Here we can see the whole procedure that we have to pass to get the results, which is consist of Fetching data, pre-processing, feature engineering, training and testing. In next sections we are going to have a deep explanation about fifth of them.
+
+
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig1.png}
+\caption{Architecture of the methodology}
+\label{fig}
+\end{figure}
+
+
+
+\section{Fetching Dataset}
+The dataset used for this study has been created by twint which is an advanced twitter scrapping tool written in python that allows for scrapping tweets from twitter profiles without using any twitter API. Alongside, user can modify and customize the dataset as deciding on to collect tweets from any specified date, exclude links, hashtags, punctuation symbols and define keywords. Fortunately, this advantage of twint helps with saving time with preprocessing the data in most cases. Our dataset is consist of 10.000 tweets which helps research have a good analyze on situation. As the main goal of research most of tweets has been gathered from the days that covid-19 spreadation was peaked (“May of 2020 to June of 2021”) to have sharp analysis. I used certain keywords to target the people that shared their opinion and views about COVID-19 impacts on education. Some of the used keywords are “COVID-19 education, COVID-19, Education, COVID-19 Schools, distance learning, corona education, online learning, e-learning”. Another potentiated problem while creating a dataset is tweets languages. It can be really illusive while creating a dataset but, thanks to the twint before getting to main preprocessing stage I eliminated this situation also. As far as twint has a limitation of sharing 3200 user tweets; the gathering process has been repeated many times according to each filter. In a way, having such a filtered and large dataset lead research to gain effective analyzes. As shown in Figure [2], it is some of our data.
+
+
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig2.png}
+\caption{Tweet Examples in data}
+\label{fig}
+\end{figure}
+
+
+
+\subsection{Pre-Processing}
+
+Even if the twint helped us with most preprocessing stages; the dataset is written in raw format and users used punctuations, images, emojis and links attached to their tweets. Using datasets in their default format are capable of misleading the analysis procedure and accuracy model. therefore, data must be cleaned. To perform the cleaning task neattext library will be useful. Eventually, Neattext will help with cleaning hashtags, user handles, URLs, and punctions.  data filtering and tokenization will be done with the usage of NeatText library. The terms data filtering is to detect stop word like conjunctions and prepositions such as “a, are, is, there, would…” and tokenization is the process of replacing sensitive data with unique identification symbol that retain all the essential information about the data with risking security which could be used for training procedure and overall analyze to reach to better result.
+
+\subsection{Feature Engineering}
+As the result of a research [14] has been done in 2016, shows that cleaning and organizing data is taking 60 percentage time of data scientists. The results directly point to importance of readability and clarity of datasets. Feature engineering is the method of manipulating, transforming, and selecting data into specified types to be used in supervised learning. To increase the accuracy of the results we applied some feature engineering methods such as shown in figure [3].
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig3.png}
+\caption{Tweets after being pre-processed}
+\label{fig}
+\end{figure}
+
+
+\subsection{Sentiment Analysis}
+After cleansing the data and making it readable by computer, one of the main parts of the research that helps us with getting to the overall results is sentiment analysis. There are several pre-trained libraries which all of them works in different methods. In this research we’ve used TextBlob and Vader libraries to calculate the tweets in Positive, Negative and Neutral aspects.
+
+
+
+\subsubsection{TextBlob}
+\\
+Is a lexicon-based python library which is widely used than any other alternatives in sentiment analysis. TextBlob provides a polarity between -1, 0 and 1, which in sentiment analysis they usually reformed as Negative, Neutral and Positive. figure [4] shows some sentiment analysis values and results gathered from our dataset.
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig4.png}
+\caption{Sentiment Anlaysis Examples by TextBlob}
+\label{fig}
+\end{figure}
+
+
+\subsubsection{Vader}
+\\
+Vader is Lexicon and Rule-based library and functionally it’s alike TextBlob, it uses a list word which is defined as Positive, Negative or Neutral. Vader has advantage of analyzing emoticons like “:), :(”, slangs and even short words such as “LOL”. Table [5] shows the same tweets as Table [3] but analyzed with Vader. 
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig5.png}
+\caption{Sentiment Anlaysis Examples by Vader}
+\label{fig}
+\end{figure}
+
+
+
+
+
+\subsection{Data Splitting}
+In this research we have used 80:20 ratio. 80 percent of the data has been used for training the models meanwhile 20 percent has been used for tests. 
+As next step We divided the research in two formats to compare the results to check which classifier and model best suits for this research. The targeted classifiers are Naïve bayes (trained and pre-trained), Logistic Regression, Random Forrest, and Support Vector classifiers.
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig6.png}
+\caption{Classifier Explanations}
+\label{fig}
+\end{figure}
+
+
+
+\subsection{Training and Testing Models}
+The model buildings used in this research are consist of two sections Trained and Pre-trained. In this section we will have a deep look in their functionalities and specialties.
+\subsection{Training a model}
+\subsubsection{LSTM model}
+As our next step, we have to start training, I had to do Tokenize the pre-processed data to convert data type from string to int to be readable by model.
+In Building a model part, I preferred to move on with Long-short term memory (LSTM) method. Model is consist of 5 layers. Input layer is embedding layer with parameters such as “vocab\_size, embedding\_vector\_length, input\_length=200” which is sent by tokenization function as input data. Then we have SpatialDropout1D layer as second layer to prevent overfitting. LSTM layer is placed as second layer with 50 units, dropout = 0.5 and recurrent dropout =0.5. The model was overfitting, so I decided to add one more layer as third layer which is dropout (0.2) to prevent overfitting. Output layer is with 1 class and activation function of sigmoid. In compiling section, I used binary\_crassentropy as loss function, Adam as optimizer and accuracy as metric.
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig7.png}
+\caption{LSTM Model Explanations}
+\label{fig}
+\end{figure}
+
+\subsubsection{RNN model}
+7 layers are used in the RNN model, some of these layers are used in pairs. The layers and their requirements are as follows\: first of all, embedding() is used for the input layer. With this layer, the data is placed in the matrix for processing. (Parameters of the embedding() layer; vocab\_size, embedding\_vector\_length, input\_length=200) . Then there is the SimpleRNN() layer where the RNN operation is implemented. The parameters of this layer are: 512 as unit value, "True" as return\_sequences, and "relu" as activation function. With the "Relu" function, its output equals itself if the input is positive, but equals zero if the input is negative. This SimpleRNN layer is used twice. Then, GlobalAveragePooling1D() is used as the transition layer before moving to the Output layer. In this way, the values are smoothed by averaging the data instead of the max(Maxpooling) or min(Minpooling) value. Finally, Dense() is used as the output layer. With Dense(), the outputs of the system can be transformed into the inputs of the next system. Dense() is used here in two different ways. First the parameters are as follows: "64" as unit value and "relu" as activation function. Then the Dropout() layer is used to prevent overfitting before moving on to the next Dense() layer. The reason why overfitting wants to be prevented is to prevent the system from giving the correct results only for inputs that are close to the target. Then the second Dense() layer was used, but this time "softmax" was used as the activation function. In neural networks, "Softmax" is a very convenient function as the last layer, because it scales and normalizes output according to probabilities. And the compiling part is used after the RNN implementation. "Sparse\-Categorical\-Cross-entropy" is used as loss function in compiling. In this way, a missing function is created over the metric between labels and predictions. And with compile, accuracy is measured using the "accuracry metric".
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{RNN2.png}
+\caption{RNN Model Explanations}
+\label{fig}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{CNN.png}
+\caption{CNN Model Explanations}
+\label{fig}
+\end{figure}
+
+
+
+
+\subsubsection{CNN model}
+10 layers are used in the CNN model, some of these layers are used in pairs. The layers and their requirements are as follows: first of all, embedding() is used for the input layer. With this layer, the data is placed in the matrix for processing. (Parameters of the embedding() layer; vocab\_size, embedding\_vector\_length, input\_length=200) . Then there is the CONV1D() layer where the CNN operation is implemented. The parameters of this layer are: 5 as kernel size,512 as input size, ‘’Same" as padding, and "relu" as activation function. With the "Relu" function, its output equals itself if the input is positive, but equals zero if the input is negative. This SimpleCNN layer is used twice but last one has kernel size 3. Then, MaxPooling1D() is used as the transition layer before moving to the Output layer. In this way, the values ​​are smoothed by averaging the data instead of the max(Maxpooling) or min(Minpooling) value. Dropout with parameter 0.4, next input is GlobalAveragePooling1D(), a Dense layer with parameters; 64 as size , activation is ‘’relu’’, again dropout(0.4). Last Dense is with parameters ‘3’ input size, ‘’softmax’’ as an activation function.
+
+
+
+\subsection{Pre-trained Model}
+As Pre-trained models I have preferred widely used classifiers as shown in Figure [9] to check the results and compare it with our model to see if the results are getting better or not. After developing the code and performing feature engineering approaches such as Bag or words, TF-IDF and Word2Vec [more information this table.]. The accuracy results with pre-trained models were pretty satisfying. [more information on this table].
+
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig8.png}
+\caption{Pre-trained Classifiers Explanation} 
+\label{fig}
+\end{figure}
+
+
+
+\section{Results}
+
+\subsection {sentiment Analyses}
+Sentiment analysis by TextBlob and Vader results. According to these analyzing results, Obviously, we can say that TextBlob performed better without giving any null information. Meanwhile Vader returned results with 2040 null values. figure [9] and [10] are the visualization of results of both libraries. and figure [11] shows us the amount and values of the tweets that has been gathered according to both of our libraries.
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{fig11.png}
+\caption{TextBlob and Vader Numerical Results} 
+\label{fig}
+\end{figure}
+
+
+
+\subsection{Expanding the Dataset}
+Data analyzations results are related to all approaches and ways that the analyzer performs while creating the results of a research. In simple words, the more different ways we try to get to the results; the more answer we collect as results. Therefore, here we also visualized the results of values of classifing libraries (TextBlob and Vader) and frequently used Words and Hashtags to know what people is suffering of nowadays. \\
+
+\subsection{Results according to LSTM, RNN and CNN models}
+In this section we will be visualizing, exploring and comparing the accuracy results that we gathered from specified models.
+
+\subsubsection{LSTM}
+In figure [11] and [12] as shown, the accuracy was 0.51 with TextBlob and and 0.48 with Vader.
+
+\subsubsection{RNN}
+ Figure [13] is result of training our dataset with RNN model and had accuracy of 0.81 which makes it the best so far.
+
+
+\subsubsection{CNN}
+As final step, figure [14] shown the last result which has been trained by our dataset with CNN model and had the best accuracy value of 0.97. In conclusion we can say that CNN was best fit for Sentiment analysis in models we build, Now we'll compare our results with pre-trained models to check if are there any other strategies to do with our models.
+
+\subsection{Results according to Pre-Trained models}
+ 
+    In analyzing the accuracy results of pre-trained models with our dataset, I tried to maximize the approaches to get as many different results as possible. Therefore, I started testing with 4 different pre-trained models. Logistic Regression, Naive Bayes, Support Vector Machine and Random Forrest. furthermore, applying different methods of feature engineering was also another way to get us to different and effecient results. In conclusion, shown in figure [15], it shares the result as Random Forrest classifer is the best suit for our data with accuracy of 0.65.
+    
+    
+    
+\section{Conclusion}
+  Covid-19 has led the world to a situation that traditional life has been changed from any views. Education was among the most affected things. Online learning was the new face of education, which has been preferred by nearly of government and institutions to prevent spreading of Covid-19. Among some advantages online learning had some serious and effective disadvantages. Financial problems, social limitations, lake of access to technology and losing the effectiveness of education was the problems that raised worries of stakeholders. In case to analyze the reactions of people to find the problems and focus on way to solve or reduce them. Therefore, we used Twint API which is a platform to gather tweets and create datasets to analyze the results. The created dataset was consist of 10,000 tweets. Removing Punctuation, removing hashtags, removing emoticons, removing null values, lowercasing the data, removing name tags, removing stopwords has been applied as pre-processing to be specified about results. TextBlob and Vader has been used as classifer and analyzer of sentiment results, which TextBlob performed great as we underlined. BOG, TF-IDF, Word2Vec methods applied as Feature Engineering. 3rd of us focused on three different models as LSTM,RNN and CNN which Lstm performed with a value of 0.51 for TextBlob and 0.48 for Vader, CNN accurcy for textblob was 0.97 and RNN was 0.81. In case to compare our models with pre-trained models we prefered Logistic Regression, Naive Bayes, Support Vector Machine and random forrest. which random forrest had the highest accuracy of 65 with TextBlob and 0.66 with Vader. 
+    
+    
+\begin{thebibliography}{9}
+\bibitem{texbook}
+Althagafi, A.; Althobaiti, G.; Alhakami, H.; Alsubait, T. Arabic Tweets Sentiment Analysis about Online Learning during
+COVID-19 in Saudi Arabia. Int. J. Adv. Comput. Sci. Appl. 2021, 12, 620–625.
+
+
+\bibitem{lamport94}
+Anwar, K.; Adnan, M. Online learning amid the COVID-19 pandemic: Students perspectives. J. Pedagog. Res. 2020, 1, 45–51.
+
+\bibitem{lamport94}
+Hogenboom, A.; Heerschop, B.; Frasincar, F.; Kaymak, U.; de Jong, F. Multi-lingual support for lexicon-based sentiment analysis
+guided by semantics. Decis. Support Syst. 2014, 62, 43–53
+
+\bibitem{lamport94}
+Relucio, F.S.; Palaoag, T.D. Sentiment analysis on educational posts from social media. In Proceedings of the 9th International
+Conference on E-Education, E-Business, E-Management and E-Learning, San Diego, CA, USA, 11–13 January 2018; pp. 99–102.
+
+\bibitem{lamport94}
+Bhagat, K.K.; Mishra, S.; Dixit, A.; Chang, C.Y. Public Opinions about Online Learning during COVID-19: A Sentiment Analysis
+Approach. Sustainability 2021, 13, 3346.
+
+\bibitem{lamport94}
+2019 6th International Conference on Control, Decision andInformation Technologies (CoDIT’19) | Paris, France / April 23-26, 2019
+
+\bibitem{lamport94}
+Sentiment Analysis and Topic Modeling on Tweets about
+Online Education during COVID-19
+
+
+\bibitem{lamport94}
+A Deep Learning Approach for Sentiment Analysis of
+COVID-19 Reviews
+
+
+\bibitem{lamport94}
+Topic Modeling and Sentiment Analysis of Online Education in
+the COVID-19 Era Using Social Networks Based Datasets
+
+
+\bibitem{lamport94}
+Analysing the Tweets about Distance Learning during
+COVID-19 Pandemic using Sentiment Ana
+
+
+\bibitem{lamport94}
+An Explainable Machine Learning Approach for COVID-19’s
+Impact on Mood States of Children and Adolescents during the
+First Lockdown in Greece
+
+\bibitem{lamport94}
+Hussain, A.; Tahir, A.; Hussain, Z.; Sheikh, Z.; Gogate, M.; Dashtipour, K.; Ali, A.; Sheikh, A. Artificial intelligence–enabled
+analysis of public attitudes on facebook and Twitter toward COVID-19 vaccines in the united kingdom and the united states:
+Observational study. J. Med. Internet Res. 2021, 23, e26627.
+\bibitem{lamport94}
+Cheeti, S.; Li, Y.; Hadaegh, A. Twitter based Sentiment Analysis of Impact of COVID-19 on Education Globaly. Int. J. Artif. Intell.
+Appl. 2021, 12, 15–24
+
+\bibitem{lamport94}
+https://www.anaconda.com/state-of-data-science-2020?utm\_medium=press&utm\_source=anaconda&utm\_campaign=sods-2020&utm\_content=report
+\end{thebibliography}
+
+\begin{figure}[htbp]
+\includegraphics[width=0.4\textwidth]{txtblb accuracy.png}
+\caption{TextBlob with LSTM} 
+\label{fig}
+\end{figure}
+\begin{figure}[htbp]
+\includegraphics[width=0.4\textwidth]{vader accuracy.png}
+\caption{Vader with LSTM} 
+\label{fig}
+\end{figure}
+
+
+
+\begin{figure}[htbp]
+\includegraphics[width=0.4\textwidth]{RNN-Textblob.png}
+\caption{RNN model Accuracy value} 
+\label{fig}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[width=0.4\textwidth]{CNN-TextBlob.png}
+\caption{CNN model accuracy value} 
+\label{fig}
+\end{figure}
+
+
+
+\clearpage
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{1\textwidth}
+    \includegraphics[width=\linewidth]{vaderandtextblob.png}
+    \caption{TextBlob and Vader Results visualized}
+    \label{fig:demo1}
+  \end{subfigure}
+   \begin{subfigure}{1\textwidth}
+    \includegraphics[width=\linewidth]{hastags.png}
+    \caption{Most used hashtags in dataset}
+    \label{fig:demo2}
+  \end{subfigure} 
+  \begin{subfigure}{1\textwidth}
+    \includegraphics[width=\linewidth]{words.png}
+    \caption{Most used words in dataset}
+    \label{fig:demo3}
+  \end{subfigure}
+\end{figure}
+
+
+
+\clearpage 
+
+
+\clearpage 
+  
+
+\clearpage
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{1\textwidth}
+    \includegraphics[width=\linewidth]{pre.png}
+    \caption{Results of Pre-trained models}
+    \label{fig:demo1}
+  \end{subfigure}
+\end{figure}
+
+
+
+\end{document}
